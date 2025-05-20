@@ -228,18 +228,28 @@ export default function WeightChart() {
 
       <ComposedChart
         width={730}
-        height={300}
+        height={350}
         data={dashboardData}
-        margin={{
-          top: 10,
-          right: 30,
-          left: 0,
-          bottom: 0,
-        }}
+        margin={{ top: 0, right: 20, bottom: 20, left: 30 }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
+        <XAxis
+          dataKey="name"
+          label={{
+            value: "Age range (in yrs)",
+            position: "insideBottom",
+            offset: -8,
+          }}
+        />
+        <YAxis
+          label={{
+            value: "Weight (in grams)",
+            angle: -90,
+            offset: -10,
+            dy: 30,
+            position: "insideLeft",
+          }}
+        />
         <Tooltip />
         <Area
           type="monotone"
@@ -277,7 +287,7 @@ export default function WeightChart() {
             strokeWidth={3}
           />
         )}
-        <Legend />
+        <Legend verticalAlign="top" height={36} />
       </ComposedChart>
     </Box>
   );

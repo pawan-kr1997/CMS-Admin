@@ -227,12 +227,31 @@ const VaccinationChart: React.FC = () => {
         </Button>
       </Stack>
 
-      <BarChart width={730} height={300} data={dashboardData}>
+      <BarChart
+        width={730}
+        height={350}
+        data={dashboardData}
+        margin={{ top: 0, right: 20, bottom: 20, left: 20 }}
+      >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
+        <XAxis
+          dataKey="name"
+          label={{
+            value: "Age range (in yrs)",
+            position: "insideBottom",
+            offset: -8,
+          }}
+        />
+        <YAxis
+          label={{
+            value: "No. of children",
+            angle: -90,
+            dy: 30,
+            position: "insideLeft",
+          }}
+        />
         <Tooltip />
-        <Legend />
+        <Legend verticalAlign="top" height={36} />
         <Bar dataKey="fully" fill="#6b8e23" />
         <Bar dataKey="partially" fill="#4682b4" />
         <Bar dataKey="none" fill="#d2691e" />
